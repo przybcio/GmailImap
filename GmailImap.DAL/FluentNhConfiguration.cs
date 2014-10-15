@@ -18,25 +18,10 @@ namespace GmailImap.DAL
         public static ISessionFactory CreateSessionFactory()
         {
             return Fluently.Configure()
-              .Database(
-              SQLiteConfiguration.Standard.InMemory
-              
-              )   
-              .Mappings(m=>m.AutoMappings.Add(AutoMap.AssemblyOf<Transaction>(type=> type.Name.StartsWith("Tran"))).ExportTo("Test"))
-              //.ExposeConfiguration(BuildSchema)
+              .Database(SQLiteConfiguration.Standard.UsingFile("testDb") )
+              .Mappings(m=>m.AutoMappings.Add(AutoMap.AssemblyOf<Transaction>().Where(t => t.Name == typeof(Transaction).Name)))
+              .ExposeConfiguration(cfg => new SchemaExport(cfg).Create(true, true))
               .BuildSessionFactory();
-        }
-
-        private static void BuildSchema(Configuration config)
-        {
-            // delete the existing db on each run
-            if (File.Exists("DatabaseFileName.sdf"))
-                File.Delete("DatabaseFileName.sdf");
-
-            // this NHibernate tool takes a configuration (with mapping info in)
-            // and exports a database schema from it
-            new SchemaExport(config)
-              .Create(false, true);
-        }
+        }        
     }
 }

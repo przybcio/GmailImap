@@ -20,9 +20,20 @@ namespace GmailImap.DAL
             return (from t in _session.Query<Transaction>() where t.Id == id select t).SingleOrDefault();
         }
 
-        public void AddTransaction(Transaction transaction)
+        public long AddTransaction(Transaction transaction)
         {
-            _session.Save(transaction);
+            var savedId = _session.Save(transaction);            
+            try
+            {
+                  return Convert.ToInt64(savedId);
+            }
+            catch (Exception ex )
+            {
+                //log error
+                return -1;
+            }
+             
+
         }
 
         public void AddTransactions(ICollection<Transaction> transactions)

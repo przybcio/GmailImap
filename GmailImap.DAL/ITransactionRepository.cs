@@ -6,7 +6,7 @@ namespace GmailImap.DAL
     {
         ICollection<Transaction> GetAllTransactions();
         Transaction GetTransaction(long id);
-        void AddTransaction(Transaction transaction);
+        long AddTransaction(Transaction transaction);
         void AddTransactions(ICollection<Transaction> transactions);
     }
 }
