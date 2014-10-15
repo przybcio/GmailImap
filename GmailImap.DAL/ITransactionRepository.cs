@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using NHibernate;
 
 namespace GmailImap.DAL
 {
@@ -7,6 +8,6 @@ namespace GmailImap.DAL
         ICollection<Transaction> GetAllTransactions();
         Transaction GetTransaction(long id);
         long AddTransaction(Transaction transaction);
-        void AddTransactions(ICollection<Transaction> transactions);
+        void AddTransactions(ICollection<Transaction> transactions);       
     }
 }

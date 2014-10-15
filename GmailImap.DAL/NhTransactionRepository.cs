@@ -17,23 +17,29 @@ namespace GmailImap.DAL
 
         public Transaction GetTransaction(long id)
         {
-            return (from t in _session.Query<Transaction>() where t.Id == id select t).SingleOrDefault();
+            using (var openSession = _sessionFactory.OpenSession())
+            {
+                return (from t in openSession.Query<Transaction>() where t.Id == id select t).SingleOrDefault();    
+            }
+            
         }
 
         public long AddTransaction(Transaction transaction)
         {
-            var savedId = _session.Save(transaction);            
-            try
+            using (var openSession = _sessionFactory.OpenSession())
             {
-                  return Convert.ToInt64(savedId);
+                var savedId = openSession.Save(transaction);
+                try
+                {
+                    return Convert.ToInt64(savedId);
+                }
+                catch (Exception ex)
+                {
+                    //log error
+                    return -1;
+                }
             }
-            catch (Exception ex )
-            {
-                //log error
-                return -1;
-            }
-             
-
+            
         }
 
         public void AddTransactions(ICollection<Transaction> transactions)
@@ -41,11 +47,10 @@ namespace GmailImap.DAL
             throw new NotImplementedException();
         }
 
-        private readonly ISession _session;
-
-        public NhTransactionRepository(ISession session)
+        private readonly ISessionFactory _sessionFactory;
+        public NhTransactionRepository(ISessionFactory sessionFactory)
         {
-            _session = session;
+            _sessionFactory = sessionFactory;
         }
     }
 }
