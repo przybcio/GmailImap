@@ -1,4 +1,5 @@
-﻿using NHibernate;
+﻿using GmailImap.DAL.Model;
+using NHibernate;
 using System;
 using System.Collections.Generic;
 using System.Linq;

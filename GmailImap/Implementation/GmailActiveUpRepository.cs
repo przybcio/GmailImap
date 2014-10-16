@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using ActiveUp.Net.Mail;
 using GmailImap.Abstract;
@@ -54,6 +55,11 @@ namespace GmailImap.Implementation
                 client1.Disconnect();
                 return messageCollection;
             }
+        }
+
+        public Stream DecodeAttachementFromMessage(IMailBoxMessage mailBoxMessage, out string fileName)
+        {
+            throw new System.NotImplementedException();
         }
 
         private void Setup(Imap4Client client1)

@@ -1,4 +1,5 @@
-﻿using ActiveUp.Net.Mail;
+﻿using System.IO;
+using ActiveUp.Net.Mail;
 using GmailImap.Abstract;
 using MimeKit;
 
@@ -17,6 +18,12 @@ namespace GmailImap.Implementation
         public string Subject
         {
             get { return _message.Subject; }
+        }
+
+        public dynamic Attachements { get; private set; }
+        public Stream DecodeAttachementFromMessage(out string fileName)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

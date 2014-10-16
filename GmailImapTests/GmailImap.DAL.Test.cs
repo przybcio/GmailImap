@@ -1,16 +1,11 @@
 ﻿using System;
-using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 using GmailImap.DAL;
-using NHibernate;
+using GmailImap.DAL.Model;
 using NUnit.Framework;
-using Castle.Windsor.Installer;
-using Castle.MicroKernel.Registration;
-using Castle.MicroKernel.Facilities;
 
 namespace GmailImapTests
 {
-    
     [TestFixture]
     public class GmailImapDALTest
     {
@@ -18,7 +13,7 @@ namespace GmailImapTests
 
         [SetUp]
         public void Create_sessionFactory_setup()
-        {            
+        {
             var container = new WindsorContainer();
             container.Install(new FluentNhConfiguration());
             _transactionRepository = container.Resolve<ITransactionRepository>();
@@ -49,7 +44,7 @@ namespace GmailImapTests
 
             Assert.NotNull(transaction);
             TimeSpan ts = transaction.AccntDate - accntDate;
-            Assert.True(ts.Minutes == 0, "Niezgodne daty księgowania");
+            Assert.True(ts.Seconds == 0, "Niezgodne daty księgowania");
         }
     }
 }

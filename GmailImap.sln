@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GmailImapTests", "GmailImap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GmailImapXml", "GmailImapXml\GmailImapXml.csproj", "{DF8B44A5-1076-425B-9147-04600FCFFA98}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankStatementProvider", "BankStatementProvider\BankStatementProvider.csproj", "{E603011C-CD35-4401-BAE5-5B225A3DF2B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{DF8B44A5-1076-425B-9147-04600FCFFA98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF8B44A5-1076-425B-9147-04600FCFFA98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF8B44A5-1076-425B-9147-04600FCFFA98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E603011C-CD35-4401-BAE5-5B225A3DF2B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E603011C-CD35-4401-BAE5-5B225A3DF2B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E603011C-CD35-4401-BAE5-5B225A3DF2B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E603011C-CD35-4401-BAE5-5B225A3DF2B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

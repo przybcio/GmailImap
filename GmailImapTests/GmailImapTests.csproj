@@ -80,7 +80,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BankStatementProviderTest.cs" />
     <Compile Include="GmailImapTest.cs" />
+    <Compile Include="MailBoxToBankStatementWorkerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -89,6 +91,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BankStatementProvider\BankStatementProvider.csproj">
+      <Project>{e603011c-cd35-4401-bae5-5b225a3df2b2}</Project>
+      <Name>BankStatementProvider</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GmailImap.DAL\GmailImap.DAL.csproj">
       <Project>{bf9f87a9-0937-43be-88db-3898f9f2b022}</Project>
       <Name>GmailImap.DAL</Name>

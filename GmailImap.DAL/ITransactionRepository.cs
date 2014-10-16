@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using GmailImap.DAL.Model;
 using NHibernate;
 
 namespace GmailImap.DAL

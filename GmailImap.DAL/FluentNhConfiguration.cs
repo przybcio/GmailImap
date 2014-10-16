@@ -10,6 +10,7 @@ using Castle.Windsor;
 using FluentNHibernate.Automapping;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
+using GmailImap.DAL.Model;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
@@ -22,7 +23,7 @@ namespace GmailImap.DAL
         {
             return Fluently.Configure()
               .Database(SQLiteConfiguration.Standard.UsingFile("testDb") )
-              .Mappings(m=>m.AutoMappings.Add(AutoMap.AssemblyOf<Transaction>().Where(t => t.Name == typeof(Transaction).Name)))
+              .Mappings(m=>m.AutoMappings.Add(AutoMap.AssemblyOf<Transaction>().Where(t => t.FullName.Contains("Model"))))
               .ExposeConfiguration(cfg => new SchemaExport(cfg).Create(true, true))
               .BuildSessionFactory();
         }
