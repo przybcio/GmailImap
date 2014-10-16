@@ -13,7 +13,10 @@ namespace GmailImap.DAL
     {
         public ICollection<Transaction> GetAllTransactions()
         {
-            throw new NotImplementedException();
+            using (ISession openSession = _sessionFactory.OpenSession())
+            {
+                return (from t in openSession.Query<Transaction>() select t).ToList();
+            }
         }
 
         public Transaction GetTransaction(long id)

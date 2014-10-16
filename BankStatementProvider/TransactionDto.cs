@@ -15,6 +15,6 @@ namespace BankStatementProvider
         public  string OperDesc { get; set; }
         public  decimal Amount { get; set; }
         public  decimal Amount2 { get; set; }
-        public  long BankStatementNo { get; set; }
+        public  long BankStatementNumber { get; set; }
     }
 }
